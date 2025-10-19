@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone Help for Seniors | Digital Senior Help Desk</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding-bottom: 40px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 16px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .intro {
+            text-align: center;
+            margin-bottom: 2.5rem;
+        }
+        
+        .intro p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .card h3 .icon {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .card ul {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .card li {
+            margin-bottom: 8px;
+        }
+        
+        .security-tips {
+            background-color: #E8F5E9;
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .security-tips h3 {
+            color: #1B5E20;
+        }
+        
+        .help-section {
+            background: linear-gradient(135deg, #E8F5E9 0%, #BBDEFB 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .help-section h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #4CAF50;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #2E7D32;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .btn-outline:hover {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .step-by-step {
+            background-color: white;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .step-by-step h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background-color: #4CAF50;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        footer {
+            text-align: center;
+            background: #333;
+            color: white;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-radius: 20px 20px 0 0;
+        }
+        
+        .faq-item {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 15px;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            color: #2E7D32;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            margin-top: 10px;
+            padding: 0 10px;
+            color: #555;
+            display: none;
+        }
+        
+        .phone-types {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .phone-type {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .phone-type:hover {
+            transform: translateY(-5px);
+        }
+        
+        .phone-type i {
+            font-size: 2.5rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .phone-type h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .resources {
+            background: #E3F2FD;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        
+        .resources h2 {
+            color: #2E7D32;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .resource-item {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+        }
+        
+        .resource-item h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .resource-item a {
+            color: #1976D2;
+            text-decoration: none;
+        }
+        
+        .resource-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .platform {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .platform i {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+        
+        .platform h4 {
+            color: #2E7D32;
+            margin-bottom: 10px;
+        }
+        
+        .platform p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial {
+            background: #FFF3E0;
+            padding: 25px;
+            border-radius: 12px;
+            margin: 30px 0;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .testimonial p {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial .author {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        
+        .visual-guide {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .visual-guide {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .guide-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .guide-item .phone-screen {
+            width: 200px;
+            height: 350px;
+            background: #333;
+            border-radius: 20px;
+            margin: 0 auto 20px;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .guide-item .screen-content {
+            background: #f0f0f0;
+            height: 100%;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        .guide-item .app-icon {
+            width: 50px;
+            height: 50px;
+            background: #4CAF50;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Main Page</a>
+            <h1>Smartphone Help for Seniors</h1>
+            <p>Guidance on calls, messages, apps, and video calls</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="intro">
+            <p>We help seniors master their smartphones with easy-to-follow guidance. Whether you're new to smartphones or just want to learn more, we're here to help you stay connected with family and friends.</p>
+        </div>
+
+        <div class="phone-types">
+            <div class="phone-type">
+                <i class="fas fa-phone-alt"></i>
+                <h4>Making Calls</h4>
+                <p>Basic & advanced calling features</p>
+            </div>
+            <div class="phone-type">
+                <i class="fas fa-sms"></i>
+                <h4>Messaging</h4>
+                <p>Text, photos, and group messages</p>
+            </div>
+            <div class="phone-type">
+                <i class="fas fa-mobile-alt"></i>
+                <h4>Apps</h4>
+                <p>Downloading and using applications</p>
+            </div>
+            <div class="phone-type">
+                <i class="fas fa-video"></i>
+                <h4>Video Calls</h4>
+                <p>Face-to-face conversations</p>
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="card">
+                <h3><span class="icon"><i class="fas fa-phone-alt"></i></span> Making & Receiving Calls</h3>
+                <p>We can help you with:</p>
+                <ul>
+                    <li>Making phone calls to contacts</li>
+                    <li>Answering and ending calls</li>
+                    <li>Using speakerphone and mute functions</li>
+                    <li>Adding new contacts to your phone</li>
+                    <li>Setting up speed dial for favorite contacts</li>
+                    <li>Managing your call history</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon"><i class="fas fa-sms"></i></span> Text Messaging</h3>
+                <p>Assistance with messaging:</p>
+                <ul>
+                    <li>Sending and receiving text messages</li>
+                    <li>Creating group messages with family</li>
+                    <li>Adding photos to your messages</li>
+                    <li>Using emojis and stickers</li>
+                    <li>Voice-to-text features</li>
+                    <li>Managing message notifications</li>
+                </ul>
+            </div>
+
+            <div class="card security-tips">
+                <h3><span class="icon"><i class="fas fa-shield-alt"></i></span> Smartphone Safety</h3>
+                <p>Staying safe with your smartphone:</p>
+                <ul>
+                    <li>Recognizing and avoiding phone scams</li>
+                    <li>Setting up a secure screen lock</li>
+                    <li>Managing privacy settings</li>
+                    <li>Identifying suspicious links and messages</li>
+                    <li>Using secure Wi-Fi connections</li>
+                    <li>Installing reputable apps only</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h3><span class="icon"><i class="fas fa-mobile-alt"></i></span> Using Apps</h3>
+                <p>Help with smartphone applications:</p>
+                <ul>
+                    <li>Downloading and installing apps</li>
+                    <li>Organizing apps on your home screen</li>
+                    <li>Updating your apps</li>
+                    <li>Using camera and photo apps</li>
+                    <li>Weather, news, and utility apps</li>
+                    <li>Deleting apps you no longer need</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="visual-guide">
+            <div class="guide-item">
+                <h3>Making a Call</h3>
+                <div class="phone-screen">
+                    <div class="screen-content">
+                        <div class="app-icon"><i class="fas fa-phone"></i></div>
+                        <p style="text-align: center; font-weight: bold;">Phone App</p>
+                        <p style="text-align: center; font-size: 0.9rem; margin-top: 10px;">Tap the phone icon, then dial a number or select a contact</p>
+                    </div>
+                </div>
+                <p>Open the Phone app, tap the keypad, enter the number, and press the green call button.</p>
+            </div>
+            
+            <div class="guide-item">
+                <h3>Sending a Message</h3>
+                <div class="phone-screen">
+                    <div class="screen-content">
+                        <div class="app-icon"><i class="fas fa-comment"></i></div>
+                        <p style="text-align: center; font-weight: bold;">Messages App</p>
+                        <p style="text-align: center; font-size: 0.9rem; margin-top: 10px;">Tap the new message icon, select a contact, and type your message</p>
+                    </div>
+                </div>
+                <p>Open Messages, tap the new message icon, choose a contact, type your message, and press send.</p>
+            </div>
+        </div>
+
+        <div class="comparison">
+            <div class="platform">
+                <i class="fab fa-apple"></i>
+                <h4>iPhone Help</h4>
+                <p>Guidance for Apple iPhone users</p>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+            <div class="platform">
+                <i class="fab fa-android"></i>
+                <h4>Android Help</h4>
+                <p>Guidance for Android phone users</p>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+            <div class="platform">
+                <i class="fas fa-tablet-alt"></i>
+                <h4>Tablet Help</h4>
+                <p>Guidance for iPad and Android tablets</p>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+        </div>
+
+        <div class="step-by-step">
+            <h2><i class="fas fa-list-ol"></i> Setting Up Video Calls</h2>
+            
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Choose a Video Call App</h3>
+                    <p>Popular options include FaceTime (for iPhone users), WhatsApp, Zoom, or Facebook Messenger. We can help you decide which is best for your needs.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Download and Install the App</h3>
+                    <p>Go to the App Store (iPhone) or Google Play Store (Android), search for the app, and tap "Install" or "Get".</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Create an Account if Needed</h3>
+                    <p>Some apps require creating an account with your email address and phone number. We can help with this process.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">4</div>
+                <div class="step-content">
+                    <h3>Learn the Basic Controls</h3>
+                    <p>Practice making test calls to learn how to start/end calls, mute your microphone, and turn your video on/off.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">5</div>
+                <div class="step-content">
+                    <h3>Add Contacts</h3>
+                    <p>Add family and friends to your app so you can easily connect with them for video calls.</p>
+                </div>
+            </div>
+            
+            <div class="step">
+                <div class="step-number">6</div>
+                <div class="step-content">
+                    <h3>Make Your First Call</h3>
+                    <p>Select a contact and start your first video call! Remember to hold your phone horizontally for a better view.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="testimonial">
+            <p>"I was afraid of my new smartphone until I got help from this program. Now I video call my grandchildren every week and send them photos. It's brought me so much joy!"</p>
+            <div class="author">- Robert, 78</div>
+        </div>
+
+        <div class="resources">
+            <h2><i class="fas fa-book-open"></i> Helpful Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h4>Printable Guides</h4>
+                    <p><a href="#">iPhone Basics Guide</a></p>
+                    <p><a href="#">Android Basics Guide</a></p>
+                    <p><a href="#">Video Calling Checklist</a></p>
+                    <p><a href="#">Smartphone Safety Tips</a></p>
+                </div>
+                <div class="resource-item">
+                    <h4>Video Tutorials</h4>
+                    <p><a href="#">Making Your First Video Call</a></p>
+                    <p><a href="#">Sending Photos via Text</a></p>
+                    <p><a href="#">Managing App Notifications</a></p>
+                    <p><a href="#">Using Voice Assistant</a></p>
+                </div>
+                <div class="resource-item">
+                    <h4>Recommended Apps</h4>
+                    <p><a href="#">Communication Apps</a></p>
+                    <p><a href="#">Health & Wellness Apps</a></p>
+                    <p><a href="#">Entertainment Apps</a></p>
+                    <p><a href="#">News & Information Apps</a></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="help-section">
+            <h2>Need Personalized Assistance?</h2>
+            <p>Our volunteers are ready to help you one-on-one with your smartphone</p>
+            <div>
+                <a href="#" class="btn"><i class="fas fa-calendar-alt"></i> Schedule a Help Session</a>
+                <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Download Phone Guides</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><span class="icon"><i class="fas fa-question-circle"></i></span> Frequently Asked Questions</h3>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I make the text larger on my phone? <span>+</span></div>
+                <div class="faq-answer">
+                    <p>You can increase text size in your phone's settings. On iPhone: Go to Settings > Display & Brightness > Text Size. On Android: Go to Settings > Display > Font Size. We can help you adjust these settings to make your phone easier to read.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between Wi-Fi and cellular data? <span>+</span></div>
+                <div class="faq-answer">
+                    <p>Wi-Fi connects to the internet through a router in your home or elsewhere, usually with no additional cost. Cellular data uses your phone plan's data allowance and works anywhere with cell service. We recommend using Wi-Fi when possible to save your cellular data.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I know if my phone is charged? <span>+</span></div>
+                <div class="faq-answer">
+                    <p>When your phone is charging, you'll see a battery icon on the screen, often with a lightning bolt symbol. The battery icon will fill up as it charges. Most phones show a percentage number that indicates exactly how much charge remains.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What should I do if my phone gets wet? <span>+</span></div>
+                <div class="faq-answer">
+                    <p>First, turn it off immediately if it's on. Don't charge it. Dry it with a soft cloth and place it in a bowl of uncooked rice or silica gel packets for 24-48 hours. If it still doesn't work, take it to a repair shop. Better yet, we can help you get a waterproof case to prevent this issue.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Digital Senior Help Desk | Email: help@seniordigital.org | Phone: (555) 123-4567</p>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isVisible = answer.style.display === 'block';
+                
+                answer.style.display = isVisible ? 'none' : 'block';
+                question.querySelector('span').textContent = isVisible ? '+' : '-';
+            });
+        });
+    </script>
+</body>
+</html>
